@@ -15,6 +15,10 @@
 
   <!--Description-->
   
+      <meta name="description" content="C语言学习笔记
+volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_
+extern用来">
+  
 
   <!--Author-->
   
@@ -65,7 +69,33 @@
   <h1>title</h1>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
-  
+  <h1 id="C语言学习笔记"><a href="#C语言学习笔记" class="headerlink" title="C语言学习笔记"></a>C语言学习笔记</h1><p><a name="CyWxj"></a></p>
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。<br>一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。<br><em>例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。</em><br>_<br><a name="mEhIi"></a></p>
+<h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a><em>extern</em></h2><p>用来声明外部变量或外部函数。与<em><strong>static关键词</strong>_相对。在函数声明中，如果没有声明为</em><strong>static静态变量</strong><em>，默认为extern，可以不用写明。<br>外部变量是指在函数或者文件外部定义的全局变量，必须在所有函数之外，且只能定义一次。声明了外部函数原型时，编译器会根据该原型自动从其他代码文件中查找到这个函数的定义，之后把这个函数扩展到所在文件中，就能调用了。<br>_使用场景：当代码中包含外部函数原型时，有两种可能。</em></p>
+<ol>
+<li>编程人员希望编译器可以自动从其他文件中找到这个函数的定义；</li>
+<li>编程人员先定义下来未实现的空函数，然后在其他的文件中具体实现。</li>
+</ol>
+<p>函数声明即：（返回类型） 函数名称（参数1类型 参数1，参数2类型 参数2，……）</p>
+<p><a name="6HkoJ"></a></p>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>常用于提高程序的模块化特性。<br>用来声明静态局部变量或静态函数。</p>
+<ol>
+<li>当声明变量时，声明时不赋值，自动默认为0。存储于进程的全局数据区，每次调用的初始值为上一次调用的值，调用结束后在存储空间不释放。在函数中声明一个<strong>static</strong>变量，则该变量在被调用过程中维持其值不变；在模块内（函数体外）声明一个<strong>static</strong>变量，则该变量能被模块内所有函数访问，但不能被模块外其他函数访问，它是一个本地的全局变量。</li>
+<li>当声明函数时，则该函数只能被这一模块内的其他函数调用。与声明为<strong>extern</strong>的函数不同，不能被其他代码文件调用。</li>
+</ol>
+<p><a name="DUcmx"></a></p>
+<h2 id="预编译指令"><a href="#预编译指令" class="headerlink" title="预编译指令"></a>预编译指令</h2><ul>
+<li>*<em>#error  *</em>预处理到#error将会停止编译并输出用户自定义的错误信息</li>
+<li><strong>#define 定义一个预处理宏，根据参数可分为对象宏和函数宏。</strong></li>
+<li><strong>#undef</strong></li>
+<li><strong>#if</strong></li>
+<li><strong>#ifdef</strong></li>
+<li><strong>#ifndef</strong></li>
+<li><strong>#elif</strong></li>
+<li><strong>#else</strong></li>
+<li><strong>#endif</strong></li>
+</ul>
+
 </div>
 
 
