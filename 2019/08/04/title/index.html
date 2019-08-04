@@ -15,8 +15,9 @@
 
   <!--Description-->
   
-      <meta name="description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_
-extern用来声明外部变量或外">
+      <meta name="description" content="C语言学习笔记
+volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_
+extern用来">
   
 
   <!--Author-->
@@ -68,7 +69,7 @@ extern用来声明外部变量或外">
   <h1>C语言学习笔记</h1>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
-  <p><a name="CyWxj"></a></p>
+  <h2 id="C语言学习笔记"><a href="#C语言学习笔记" class="headerlink" title="C语言学习笔记"></a>C语言学习笔记</h2><p><a name="CyWxj"></a></p>
 <h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。<br>一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。<br><em>例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。</em><br>_<br><a name="mEhIi"></a></p>
 <h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a><em>extern</em></h2><p>用来声明外部变量或外部函数。与<em><strong>static关键词</strong>_相对。在函数声明中，如果没有声明为</em><strong>static静态变量</strong><em>，默认为extern，可以不用写明。<br>外部变量是指在函数或者文件外部定义的全局变量，必须在所有函数之外，且只能定义一次。声明了外部函数原型时，编译器会根据该原型自动从其他代码文件中查找到这个函数的定义，之后把这个函数扩展到所在文件中，就能调用了。<br>_使用场景：当代码中包含外部函数原型时，有两种可能。</em></p>
 <ol>
@@ -84,16 +85,49 @@ extern用来声明外部变量或外">
 </ol>
 <p><a name="DUcmx"></a></p>
 <h2 id="预编译指令"><a href="#预编译指令" class="headerlink" title="预编译指令"></a>预编译指令</h2><ul>
-<li>*<em>#error  *</em>预处理到#error将会停止编译并输出用户自定义的错误信息</li>
-<li><strong>#define 定义一个预处理宏，根据参数可分为对象宏和函数宏。</strong></li>
-<li><strong>#undef</strong></li>
-<li><strong>#if</strong></li>
-<li><strong>#ifdef</strong></li>
-<li><strong>#ifndef</strong></li>
-<li><strong>#elif</strong></li>
-<li><strong>#else</strong></li>
-<li><strong>#endif</strong></li>
+<li><p>*<em>#error  *</em></p>
+<p>   预处理到#error将会停止编译并输出用户自定义的错误信息</p>
+</li>
+<li><p>*<em>#define *</em></p>
+<pre><code>定义一个预处理宏，根据参数可分为对象宏和函数宏。</code></pre></li>
 </ul>
+<ol>
+<li>常量定义        eg.#define MAX_LENGTH 100</li>
+<li>通用标识        eg.#define SLOG printf</li>
+<li>预编译宏        eg.#define _DEBUG</li>
+<li>函数宏           eg.#define MIN(a,b) ((a)&gt;(b)?(a):(b))</li>
+</ol>
+<ul>
+<li><p>*<em>#undef *</em></p>
+<pre><code>取消宏的定义</code></pre></li>
+<li><p><strong>#if</strong></p>
+<p>   与#define 配合使用，判断某个宏是否被定义</p>
+</li>
+<li><p>*<em>#ifdef  *</em></p>
+<p>   与#ifndef都是为了避免在多个文件中重复定义。如果定义了xx，就执行下一条语句。</p>
+</li>
+<li><p><strong>#ifndef</strong></p>
+</li>
+<li><p><strong>#elif</strong></p>
+</li>
+<li><p><strong>#else</strong></p>
+</li>
+<li><p>*<em>#endif  *</em></p>
+<p>都是配合使用，为了避免重复定义。常见于大型的项目开发。</p>
+</li>
+</ul>
+<p><a name="jiwvK"></a></p>
+<h2 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h2><ol>
+<li><p>定义一种类型名  eg. char*a,b;\只有a是指针   </p>
+<pre><code>typedef char*PCHAR;&lt;br /&gt;                                    PCHAR pa,pb;\\两者皆指针&lt;br /&gt;2.用于struct结构体&lt;br /&gt;3.跨平台移植&lt;br /&gt;  程序编写中，如果考虑到平台移植的因素，则需要从代码中抽象出硬件层的差异，考虑到一个浮点型变量，在不同的硬件平台上，所占据的空间有可能不同，此时，可以采用typedef将其定义到单独的头文件里，该头文件全是硬件相关的内容。</code></pre></li>
+</ol>
+<p><a name="s5fwv"></a></p>
+<h2 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h2><p>用于内联函数。（如果亦谐函数被频繁调用，不断地有函数入栈，会造成栈空间的或栈内存地大量消耗，为了解决这个问题，用inline）<br>inline与函数定义体放在一起时，使其成为内联函数。在被调用时直接替换成代码，而不用函数栈。另外需要注意的是，只适合于代码简单的函数体使用，并且内联函数本身不能是直接递归函数。用于减少程序运行时的空间消耗，提高运行效率和速度。</p>
+<p><a name="ChwbM"></a></p>
+<h2 id="memset（）"><a href="#memset（）" class="headerlink" title="memset（）"></a>memset（）</h2><p>原型为extern void<em>memset(void</em>buffer,int c,int count)<br>buffer为指针或数组，c是赋给buffer的值，count是buffer的长度。<br><a name="yHa0L"></a></p>
+<h2 id="memcpy（）"><a href="#memcpy（）" class="headerlink" title="memcpy（）"></a>memcpy（）</h2><p>内存拷贝函数 原型为 void<em>memcpy(void</em>destin,void*cource,unsigned n)<br>从源source中拷贝n个字节到目标destin中。</p>
+<p><a name="t0zn2"></a></p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><strong>sint32 **有符号的32位整型<br></strong>（类型）数**  将数强制转换为括号内的类型。 eg.(int) 0.00 将0.00强制转换为int型的0.</p>
 
 </div>
 
