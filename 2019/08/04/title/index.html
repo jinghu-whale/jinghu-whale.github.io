@@ -8,16 +8,15 @@
 
   <!-- Title -->
   
-  <title>title - Hexo</title>
+  <title>C语言学习笔记 - Hexo</title>
 
   <!--Favicon-->
   <link rel="icon" href="favicon/favicon.ico">
 
   <!--Description-->
   
-      <meta name="description" content="C语言学习笔记
-volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_
-extern用来">
+      <meta name="description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_
+extern用来声明外部变量或外">
   
 
   <!--Author-->
@@ -63,13 +62,13 @@ extern用来">
 
   		<div class="row">
   			<div class="col-12 mb-4">
-  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="title">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="C语言学习笔记">
 </div>
 <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
-  <h1>title</h1>
+  <h1>C语言学习笔记</h1>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
-  <h1 id="C语言学习笔记"><a href="#C语言学习笔记" class="headerlink" title="C语言学习笔记"></a>C语言学习笔记</h1><p><a name="CyWxj"></a></p>
+  <p><a name="CyWxj"></a></p>
 <h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。<br>一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。<br><em>例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。</em><br>_<br><a name="mEhIi"></a></p>
 <h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a><em>extern</em></h2><p>用来声明外部变量或外部函数。与<em><strong>static关键词</strong>_相对。在函数声明中，如果没有声明为</em><strong>static静态变量</strong><em>，默认为extern，可以不用写明。<br>外部变量是指在函数或者文件外部定义的全局变量，必须在所有函数之外，且只能定义一次。声明了外部函数原型时，编译器会根据该原型自动从其他代码文件中查找到这个函数的定义，之后把这个函数扩展到所在文件中，就能调用了。<br>_使用场景：当代码中包含外部函数原型时，有两种可能。</em></p>
 <ol>
