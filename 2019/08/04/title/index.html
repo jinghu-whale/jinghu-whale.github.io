@@ -15,7 +15,7 @@
 <meta property="og:description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_ extern用来声明外部变量或外部函数。与static_关键词相对。在函数声明中，如果没有声明为static_静态变量，默认为ex">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565163444862-bd713224-8f2e-4189-8fe7-65714263d2ab.png#align=left&display=inline&height=150&name=image.png&originHeight=150&originWidth=183&size=3373&status=done&width=183">
-<meta property="og:updated_time" content="2019-08-07T10:31:04.206Z">
+<meta property="og:updated_time" content="2019-08-08T11:57:00.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言学习笔记">
 <meta name="twitter:description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_ extern用来声明外部变量或外部函数。与static_关键词相对。在函数声明中，如果没有声明为static_静态变量，默认为ex">
@@ -90,7 +90,7 @@
       
         <p><a name="CyWxj"></a></p>
 <h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。<br>一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。<br>例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。<br>_<br><a name="mEhIi"></a></p>
-<h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a><em>extern</em></h2><p>用来声明外部变量或外部函数。与<em><strong>static</strong>_关键词相对。在函数声明中，如果没有声明为</em><strong>static</strong>_静态变量，默认为extern，可以不用写明。<br>外部变量是指在函数或者文件外部定义的全局变量，必须在所有函数之外，且只能定义一次。声明了外部函数原型时，编译器会根据该原型自动从其他代码文件中查找到这个函数的定义，之后把这个函数扩展到所在文件中，就能调用了。<br>使用场景：当代码中包含外部函数原型时，有两种可能。</p>
+<h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h2><p>用来声明外部变量或外部函数。与<em><strong>static</strong>_关键词相对。在函数声明中，如果没有声明为</em><strong>static</strong>_静态变量，默认为extern，可以不用写明。<br>外部变量是指在函数或者文件外部定义的全局变量，必须在所有函数之外，且只能定义一次。声明了外部函数原型时，编译器会根据该原型自动从其他代码文件中查找到这个函数的定义，之后把这个函数扩展到所在文件中，就能调用了。<br>使用场景：当代码中包含外部函数原型时，有两种可能。</p>
 <ol>
 <li>编程人员希望编译器可以自动从其他文件中找到这个函数的定义；</li>
 <li>编程人员先定义下来未实现的空函数，然后在其他的文件中具体实现。</li>
@@ -104,10 +104,10 @@
 </ol>
 <p><a name="DUcmx"></a></p>
 <h2 id="预编译指令"><a href="#预编译指令" class="headerlink" title="预编译指令"></a>预编译指令</h2><ul>
-<li><p><strong>#error</strong></p>
+<li><p>*<em>#error  *</em></p>
 <p>   预处理到#error将会停止编译并输出用户自定义的错误信息</p>
 </li>
-<li><p><strong>#define</strong></p>
+<li><p>*<em>#define *</em></p>
 <pre><code>定义一个预处理宏，根据参数可分为对象宏和函数宏。</code></pre></li>
 </ul>
 <ol>
@@ -117,12 +117,12 @@
 <li>函数宏           eg.#define MIN(a,b) ((a)&gt;(b)?(a):(b))</li>
 </ol>
 <ul>
-<li><p><strong>#undef</strong></p>
+<li><p>*<em>#undef *</em></p>
 <pre><code>取消宏的定义</code></pre></li>
 <li><p><strong>#if</strong></p>
 <p>   与#define 配合使用，判断某个宏是否被定义</p>
 </li>
-<li><p><strong>#ifdef</strong></p>
+<li><p>*<em>#ifdef  *</em></p>
 <p>   与#ifndef都是为了避免在多个文件中重复定义。如果定义了xx，就执行下一条语句。</p>
 </li>
 <li><p><strong>#ifndef</strong></p>
@@ -131,22 +131,43 @@
 </li>
 <li><p><strong>#else</strong></p>
 </li>
-<li><p><strong>#endif</strong></p>
+<li><p>*<em>#endif  *</em></p>
 <p>都是配合使用，为了避免重复定义。常见于大型的项目开发。</p>
 </li>
 </ul>
 <p><a name="jiwvK"></a></p>
-<h2 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h2><ol>
-<li><p>定义一种类型名  eg. char*a,b;\只有a是指针   </p>
-<pre><code>typedef char*PCHAR;&lt;br /&gt;                                    PCHAR pa,pb;\\两者皆指针&lt;br /&gt;2.用于struct结构体&lt;br /&gt;3.跨平台移植&lt;br /&gt;  程序编写中，如果考虑到平台移植的因素，则需要从代码中抽象出硬件层的差异，考虑到一个浮点型变量，在不同的硬件平台上，所占据的空间有可能不同，此时，可以采用typedef将其定义到单独的头文件里，该头文件全是硬件相关的内容。</code></pre></li>
-</ol>
+<h2 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h2><ul>
+<li><strong>定义一种类型名</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char*a,b;\\只有a是指针   </span><br><span class="line">typedef char *PCHAR; \\可以看作PCHAR被定义成了指向字符的指针，在书写中最好*于PCHAR靠近，虽然char*这样的格式也是可以的，但在使用时容易引起歧义。</span><br><span class="line">PCHAR pa,pb;\\两者皆指针</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果使用#define来创建新的类型名，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define PCHAR char*;</span><br><span class="line">PCHAR a,b;\\只有a被声明为了指向字符型的指针，b不是。因为define的作用只是单纯字符替换。所以有关于指针数组什么的还是用typedef合适。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>用于struct结构体</strong></p>
+</li>
+<li><p><strong>跨平台移植</strong></p>
+<p>程序编写中，如果考虑到平台移植的因素，则需要从代码中抽象出硬件层的差异，考虑到一个浮点型变量，在不同的硬件平台上，所占据的空间有可能不同，此时，可以采用typedef将其定义到单独的头文件里，该头文件全是硬件相关的内容。</p>
+</li>
+</ul>
 <p><a name="s5fwv"></a></p>
 <h2 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h2><p>用于内联函数。（如果亦谐函数被频繁调用，不断地有函数入栈，会造成栈空间的或栈内存地大量消耗，为了解决这个问题，用inline）<br>inline与函数定义体放在一起时，使其成为内联函数。在被调用时直接替换成代码，而不用函数栈。另外需要注意的是，只适合于代码简单的函数体使用，并且内联函数本身不能是直接递归函数。用于减少程序运行时的空间消耗，提高运行效率和速度。</p>
 <p><a name="ChwbM"></a></p>
-<h2 id="memset（）"><a href="#memset（）" class="headerlink" title="memset（）"></a>memset（）</h2><p>原型为extern void<em>memset(void</em>buffer,int c,int count)<br>buffer为指针或数组，c是赋给buffer的值，count是buffer的长度。<br><a name="yHa0L"></a></p>
-<h2 id="memcpy（）"><a href="#memcpy（）" class="headerlink" title="memcpy（）"></a>memcpy（）</h2><p>内存拷贝函数 原型为 void<em>memcpy(void</em>destin,void*cource,unsigned n)<br>从源source中拷贝n个字节到目标destin中。</p>
+<h2 id="memset（）"><a href="#memset（）" class="headerlink" title="memset（）"></a>memset（）</h2><p>原型为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extern void*memset(void*buffer,int c,int count)</span><br></pre></td></tr></table></figure>
+
+<p>buffer为指针或数组，c是赋给buffer的值，count是buffer的长度。<br><a name="yHa0L"></a></p>
+<h2 id="memcpy（）"><a href="#memcpy（）" class="headerlink" title="memcpy（）"></a>memcpy（）</h2><p>内存拷贝函数 原型为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void*memcpy(void*destin,void*cource,unsigned n)</span><br></pre></td></tr></table></figure>
+
+<p>从源source中拷贝n个字节到目标destin中。</p>
 <p><a name="t0zn2"></a></p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><strong>sint32 **有符号的32位整型<br></strong>（类型）数**  将数强制转换为括号内的类型。 eg.(int) 0.00 将0.00强制转换为int型的0.</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>4种基本数据类型——整型、浮点型、指针和聚合类型（如数组和结构体等）。<br><strong>sint32 **有符号的32位整型<br></strong>（类型）数**  将数强制转换为括号内的类型。 <br>eg.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(int) 0.00;\\将0.00强制转换为int型的0.</span><br><span class="line">char a[20];     </span><br><span class="line">int *p=(int *)a;\\因为p指针指向的类型声明为int型，而a本身是字符型的数组，所以需要强制转换将其类型改为int型，但并不会改变数组a的内容。因为int型大小大于char型。</span><br></pre></td></tr></table></figure>
+
+<p><a name="cfKuy"></a></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>变量拥有三个属性——作用域、链接属性和存储类型。决定了一个变量可以在什么地方使用和它的值将保持多久。<br>当变量在程序的某个部分被声明时，它只有在程序的一定区域内才能被访问。</p>
 <p><a name="byunj"></a></p>
 <h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>指针是一个特殊的变量，其值为另一个变量的地址。像其他变量或常量一样，在使用指针存储其他变量地址之前，需要对其进行声明。格式为 type *var-name</p>
 <p>需要弄清楚指针的四个概念：指针的类型，指针所指向的类型，指针的值或叫指针所指向的地址，指针本身占据的内存区。</p>
@@ -159,49 +180,13 @@
 <p><a name="Gj2UR"></a></p>
 <h3 id="指针的算术运算"><a href="#指针的算术运算" class="headerlink" title="指针的算术运算"></a>指针的算术运算</h3><p>指针可以加上或减去一个整数，不过和普通的数值加减运算的意义是不一样的，以单元为单位。</p>
 <p>举例：</p>
-<blockquote>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-</blockquote>
-<blockquote>
-<p>int main()</p>
-</blockquote>
-<blockquote>
-<p>{</p>
-</blockquote>
-<blockquote>
-<pre><code>char a[20] = &quot;you are a pig&quot;;</code></pre></blockquote>
-<blockquote>
-<pre><code>char *p = a;</code></pre></blockquote>
-<blockquote>
-<pre><code>char **ptr = &amp;p;</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;%d\n&quot;, sizeof(char **));</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;p=%d\n&quot;, p);</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;ptr=%d\n&quot;, ptr);</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;*ptr=%d\n&quot;, *ptr);</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;**ptr=%c\n&quot;, **ptr);</code></pre></blockquote>
-<blockquote>
-<pre><code>ptr++;</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;p=%d\n&quot;, p);</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;ptr=%d\n&quot;, ptr);</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;*ptr=%d\n&quot;, *ptr);</code></pre></blockquote>
-<blockquote>
-<pre><code>printf(&quot;**ptr=%c\n&quot;, **ptr);</code></pre></blockquote>
-<blockquote>
-<p>}</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char a[20] = &quot;you are a pig&quot;;</span><br><span class="line">	char *p = a;</span><br><span class="line">	char **ptr = &amp;p;</span><br><span class="line">	printf(&quot;%d\n&quot;, sizeof(char **));</span><br><span class="line">	printf(&quot;p=%d\n&quot;, p);</span><br><span class="line">	printf(&quot;ptr=%d\n&quot;, ptr);</span><br><span class="line">	printf(&quot;*ptr=%d\n&quot;, *ptr);</span><br><span class="line">	printf(&quot;**ptr=%c\n&quot;, **ptr);</span><br><span class="line">	ptr++;</span><br><span class="line">	printf(&quot;p=%d\n&quot;, p);</span><br><span class="line">	printf(&quot;ptr=%d\n&quot;, ptr);</span><br><span class="line">	printf(&quot;*ptr=%d\n&quot;, *ptr);</span><br><span class="line">	printf(&quot;**ptr=%c\n&quot;, **ptr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>运行后输出为：<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1565163444862-bd713224-8f2e-4189-8fe7-65714263d2ab.png#align=left&display=inline&height=150&name=image.png&originHeight=150&originWidth=183&size=3373&status=done&width=183" alt="image.png"></p>
 <p>分析：上面的例子中，p的指针类型为 char<em>，p所指向的类型为char，p所指向的地址为数组a的首地址（在C语言中，几乎在所有使用数组的表达式中，数组名的值是一个指针常量，也就是数组第一个元素的地址。）（*</em>但注意：在两种场合下，数组名不是指针常量的意义。就是当数组名作为sizeof操作符和单目操作符&amp;的操作数时。sizeof（a）返回整个数组的长度，而不是指向数组首地址的指针的长度。&amp;a，取一个数组名的地址所产生的是一个指向数组的指针，而不是一个指向某个指针常量的指针。）<strong><br>ptr的指针类型为char</strong>，ptr所指向的类型为char<em>（ptr为二级指针，指向一个字符型指针），ptr所指向的地址为指针p的地址。p和ptr本身占据的内存区大小通过sizeof命令输出为4，说明本系统内char型指针本身大小为4个字节。所以</em>ptr就是p的地址，**ptr就是p指向的数组a的地址。</p>
+<p><em><strong>注意：</strong></em><br>除了数组名的值可作为一个指针常量之外，当字符串常量出现在一个表达式中时，表达式所使用的值就是这些字符所存储的地址，而不是字符本身。<br>eg.char *message=”Hello World!”;<br>就是声明了一个指向字符类型的message指针，并初始化它的值使其指向”Hello World!”的首地址。<br></p>
 <p><a name="GtCXW"></a></p>
-<h3 id="指针运算符-amp-和"><a href="#指针运算符-amp-和" class="headerlink" title="指针运算符&amp;和*"></a>指针运算符&amp;和*</h3><p>&amp;是取地址运算符，*是间接运算符。<br>C语言中，运算符优先级为</p>
+<h3 id="指针运算符-amp-和"><a href="#指针运算符-amp-和" class="headerlink" title="指针运算符&amp;和*"></a>指针运算符&amp;和*</h3><p>&amp;是取地址运算符，*是间接运算符（指针指向结果值，对指针进行间接访问操作就可以获得这个值）。<br>C语言中，运算符优先级为</p>
 <table>
 <thead>
 <tr>
@@ -404,20 +389,24 @@
 <td align="left">从左到右</td>
 </tr>
 </tbody></table>
+<p><a name="p127d"></a></p>
+<h3 id="常量与指针"><a href="#常量与指针" class="headerlink" title="常量与指针"></a>常量与指针</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int *pi;\\pi是一个普通的指向整型的指针</span><br><span class="line">int const *pi;\\pi指向整型常量，你可以修改指针，但不能修改它指向的值</span><br><span class="line">int *const pi;\\pi为指向整型的常量指针，你可以修改它指向的值，但它的值无法修改（即该指针存储的内存区域，门牌号）</span><br><span class="line">int const *const pi;\\pi为指向整型常量的常量指针。它的值无法修改，它指向的值也无法修改。</span><br></pre></td></tr></table></figure>
+
 <p><a name="0b3xI"></a></p>
 <h3 id="数组与指针"><a href="#数组与指针" class="headerlink" title="数组与指针"></a>数组与指针</h3><p>数组的数组名在很多情况下可以看作一个指针常量。</p>
 <p>在AUTOSAR项目代码中，经常遇到的关于指针与数组的结构如下，对其进行简要的分析：</p>
-<p>typedef Rte_CDS_x const * const Rte_Instance;</p>
-<p>typedef struct {<br>Rte_DE_xImpl * const x;\Rte_DE_xImpl是一个有一个uint32类型的value的结构体。<br>Rte_PDS_x_R PwmSet;<br>Rte_PDS_x_R PwmSetDuty;<br>} Rte_CDS_x;</p>
-<p>typedef struct {<br>Std_ReturnType (<em>Call_Write)(/*IN</em>/DutyCycle DutyValue, /<em>OUT</em>/IoHwAb_StatusType * Status);<br>} Rte_PDS_x_R;</p>
-<p>typedef struct {<br>uint8 _dummy;<br>} Rte_PDS_x_R;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">typedef Rte_CDS_x const * const Rte_Instance;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">Rte_DE_xImpl * const x;\\Rte_DE_xImpl是一个有一个uint32类型的value的结构体。</span><br><span class="line">Rte_PDS_x_R PwmSet;</span><br><span class="line">Rte_PDS_x_R PwmSetDuty;</span><br><span class="line">&#125; Rte_CDS_x;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">Std_ReturnType (*Call_Write)(/*IN*/DutyCycle DutyValue, /*OUT*/IoHwAb_StatusType * Status);</span><br><span class="line">&#125; Rte_PDS_x_R;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">uint8 _dummy;</span><br><span class="line">&#125; Rte_PDS_x_R;</span><br></pre></td></tr></table></figure>
+
 <p><a name="qkOHO"></a></p>
 <h2 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h2><p>标准中定义了几个<strong>三字母词（trigrph）</strong>，就是几个字符的序列，合起来表示另一个字符。通常用两个问号开头再尾随一个字符。<br>??(   [<br>??)   ]<br>??!   |<br>等等。<br>另外转义序列由一个反斜杠\加上一或多个其他字符组成。使其只代表字符而不是环境中的特殊含义，如\用来表示一个反斜杠。</p>
+<p><a name="aYme9"></a></p>
+<h2 id="读取输入的操作"><a href="#读取输入的操作" class="headerlink" title="读取输入的操作"></a>读取输入的操作</h2><p>C语言中，常用的用来从键盘获取用户输入的函数有：<br><strong>scanf()</strong>，可用来输入多种类型的数据<br><strong>getchar(),getche(),getch()，</strong>都用于输入单个字符,getchar()函数从标准输入读取一个字符并返回它的值。如果输入中不再存在任何字符，函数就会返回常量EOF（在stdio.h中定义），用于提示文件的结尾。<br><strong>gets()，</strong>从标准输入读取一行文本并把它存储于作为参数传递给它的数组中。一行输入由一串字符组成，以一个换行符结尾。gets函数丢弃换行符，并在该行的末尾存储一个NUL字节（NUL字节是指字节模式为全0的字节,’\0’），然后，gets函数返回一个非NULL值，表示该行被成功读取。</p>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/04/title/" data-id="cjz144tgx0002kct9sn5563kd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/04/title/" data-id="cjz2mmu9s0002tot9p0sobqs5" class="article-share-link">Share</a>
       
       
     </footer>
