@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="suda masaki hahaha">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HJ&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_ extern用来声明外部变量或外部函数。与static_关键词相对。在函数声明中，如果没有声明为static_静态变量，默认为ex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/title/index.html">
 <meta property="og:site_name" content="HJ&#39;s Blog">
-<meta property="og:description" content="suda masaki hahaha">
+<meta property="og:description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_ extern用来声明外部变量或外部函数。与static_关键词相对。在函数声明中，如果没有声明为static_静态变量，默认为ex">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565163444862-bd713224-8f2e-4189-8fe7-65714263d2ab.png#align=left&display=inline&height=150&name=image.png&originHeight=150&originWidth=183&size=3373&status=done&width=183">
+<meta property="og:updated_time" content="2019-08-09T09:07:59.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HJ&#39;s Blog">
-<meta name="twitter:description" content="suda masaki hahaha">
+<meta name="twitter:title" content="C语言学习笔记">
+<meta name="twitter:description" content="volatile说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。_ extern用来声明外部变量或外部函数。与static_关键词相对。在函数声明中，如果没有声明为static_静态变量，默认为ex">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565163444862-bd713224-8f2e-4189-8fe7-65714263d2ab.png#align=left&display=inline&height=150&name=image.png&originHeight=150&originWidth=183&size=3373&status=done&width=183">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/09/title/">
 
 
 
 
 
-  <title>HJ's Blog</title>
+  <title>C语言学习笔记 | HJ's Blog</title>
   
 
 
@@ -143,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -259,9 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/title/" itemprop="url">C语言学习笔记</a></h1>
+          <h1 class="post-title" itemprop="name headline">C语言学习笔记</h1>
         
 
         <div class="post-meta">
@@ -311,9 +311,7 @@
       
 
       
-        
-          
-            <p><a name="CyWxj"></a></p>
+        <p><a name="CyWxj"></a></p>
 <h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>说明这变量可能会被意想不到改变，优化器用到时均会小心读取，而不是读取寄存器中的备份。<br>一般用在多线程程序中，以避免在其中一个线程操作该变量时，将其拷贝到寄存器。<br>例子：并行设备的硬件寄存器；中断程序中访问的非自动变量；多线程应用中被几个任务共享的变量。<br>_<br><a name="mEhIi"></a></p>
 <h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h2><p>用来声明外部变量或外部函数。与<em><strong>static</strong>_关键词相对。在函数声明中，如果没有声明为</em><strong>static</strong>_静态变量，默认为extern，可以不用写明。<br>外部变量是指在函数或者文件外部定义的全局变量，必须在所有函数之外，且只能定义一次。声明了外部函数原型时，编译器会根据该原型自动从其他代码文件中查找到这个函数的定义，之后把这个函数扩展到所在文件中，就能调用了。<br>使用场景：当代码中包含外部函数原型时，有两种可能。</p>
 <ol>
@@ -629,8 +627,6 @@
 <p><a name="aYme9"></a></p>
 <h2 id="读取输入的操作"><a href="#读取输入的操作" class="headerlink" title="读取输入的操作"></a>读取输入的操作</h2><p>C语言中，常用的用来从键盘获取用户输入的函数有：<br><strong>scanf()</strong>，可用来输入多种类型的数据<br><strong>getchar(),getche(),getch()，</strong>都用于输入单个字符,getchar()函数从标准输入读取一个字符并返回它的值。如果输入中不再存在任何字符，函数就会返回常量EOF（在stdio.h中定义），用于提示文件的结尾。<br><strong>gets()，</strong>从标准输入读取一行文本并把它存储于作为参数传递给它的数组中。一行输入由一串字符组成，以一个换行符结尾。gets函数丢弃换行符，并在该行的末尾存储一个NUL字节（NUL字节是指字节模式为全0的字节,’\0’），然后，gets函数返回一个非NULL值，表示该行被成功读取。</p>
 
-          
-        
       
     </div>
     
@@ -647,147 +643,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whale">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HJ's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/05/test/" itemprop="url">Linux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T16:25:02+08:00">
-                2019-08-05
-              </time>
+              <a href="/2019/08/05/test/" rel="next" title="Linux">
+                <i class="fa fa-chevron-left"></i> Linux
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p><a name="8Qzm3"></a></p>
-<h1 id="Linux编译问题"><a href="#Linux编译问题" class="headerlink" title="Linux编译问题"></a>Linux编译问题</h1><p>由于AUTOSAR代码文件较多，所以运用Linux的make命令编译较为快捷。将代码在linux下编译完成后，将生成的可执行文件传回window系统烧写入单片机。整个编译流程，需要经历三个过程。将windows的代码文件传到linux上，在linux系统里编译，将编译完成的可执行文件重新传回windows系统。</p>
-<p><a name="A85EL"></a></p>
-<h2 id="1-windows系统与虚拟机linux间的文件互传"><a href="#1-windows系统与虚拟机linux间的文件互传" class="headerlink" title="1.windows系统与虚拟机linux间的文件互传"></a>1.windows系统与虚拟机linux间的文件互传</h2><p>windows系统与ubuntu虚拟机之间的文件互传有多种方式。</p>
-<ul>
-<li><p><strong>直接通过u盘拷贝。</strong>先使用fdisk-l命令查看U盘是否被识别到，且识别到哪个位置；在mnt中建立一个usb（随意命名）的文件夹；然后挂载到其识别到的U盘位置。就可以将U盘中的文件在linux下使用了。</p>
-</li>
-<li><p><strong>通过软件传输。</strong>在linux下下载一些专门用来传文件的软件即可。</p>
-</li>
-<li><p><strong>通过共享文件夹。</strong>通过设置虚拟机里面的共享文件夹，实现两个系统之间的互传。</p>
-<pre><code>打开VMware，然后在菜单栏的虚拟机设置中，选择选项，启用共享文件夹。并在windows系统下创建一个文件夹（任意位置）作为共享文件夹并添加；然后将该共享文件夹挂载到mnt上，一般共享的文件夹默认在/mnt/hgfs路径下。&lt;br /&gt;     如果在hgfs目录中看不到共享文件夹，可能是没有安装VMware Tools。直接在VMware 虚拟机中的应用程序菜单中，点击安装VMware Tools安装即可。&lt;br /&gt;    然后在图形化界面对共享文件夹的文件进行操作就可以了，右键需要传输的文件 用move to或copy to将其传到共享文件夹里就两个系统可共同访问。（Q：用cp命令将文件复制到共享文件夹的时候，会出现 fuse：mountpoint is not empty fuse： if you are sure this is safe, use the &apos;nonempty&apos; mount option。不知道什么原因）</code></pre></li>
-</ul>
-<p><a name="bLy46"></a></p>
-<h2 id="2-linux下的make命令编译"><a href="#2-linux下的make命令编译" class="headerlink" title="2.linux下的make命令编译"></a>2.linux下的make命令编译</h2><pre><code>make是一个非常重要的编译工具，尤其是应用在大型的开发项目。可将其分解为多个更易于管理的模块，对于一个包括几百个源文件的应用程序，可以通过make和makefile处理各个源文件之间的相互关系。&lt;br /&gt;make命令会去搜寻当前目录下的makefile文件，makefile文件主要用来描述各个文件之间的依赖与相互关系，整个工程所有文件的编译顺序和编译规则。makefile的编写是make正常工作的基础。make是一个命令工具，解释makefile中的规则。&lt;br /&gt;makefile的格式：  target……：prequisites……&lt;br /&gt;                            command&lt;br /&gt;     另外为了便于维护，在makefile中我们可以使用变量（可理解为C语言中的宏）&lt;br /&gt;   </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objects=main.o command.o</span><br></pre></td></tr></table></figure>
-
-<p>$(object)就可以使用这个变量的内容。</p>
-<pre><code>根据makefile文件的不同，全部编译的格式也会不同。autosar项目中使用的是：&lt;br /&gt;make BOARDDIR=stm32_stm3210c BDIR=../examples/xx/xx all&lt;br /&gt;需要注意的是make命令要在最顶层的makefile文件所在的目录下运行，否则会出错。&lt;br /&gt;编译成功后会生成obj的目标文件夹，里面有elf，s19，hex等格式的可执行文件。</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -797,10 +674,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -808,6 +686,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -828,8 +710,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -871,6 +762,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">1.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extern"><span class="nav-number">2.</span> <span class="nav-text">extern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static"><span class="nav-number">3.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预编译指令"><span class="nav-number">4.</span> <span class="nav-text">预编译指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typedef"><span class="nav-number">5.</span> <span class="nav-text">typedef</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline"><span class="nav-number">6.</span> <span class="nav-text">inline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch（）"><span class="nav-number">7.</span> <span class="nav-text">switch（）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memset（）"><span class="nav-number">8.</span> <span class="nav-text">memset（）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcpy（）"><span class="nav-number">9.</span> <span class="nav-text">memcpy（）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">10.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">11.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number">12.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-指针的类型"><span class="nav-number">12.1.</span> <span class="nav-text">1.指针的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-指针所指向的类型"><span class="nav-number">12.2.</span> <span class="nav-text">2.指针所指向的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-指针指向的地址（重点）"><span class="nav-number">12.3.</span> <span class="nav-text">3.指针指向的地址（重点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-指针本身占据的内存区"><span class="nav-number">12.4.</span> <span class="nav-text">4.指针本身占据的内存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针的算术运算"><span class="nav-number">12.5.</span> <span class="nav-text">指针的算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针运算符-amp-和"><span class="nav-number">12.6.</span> <span class="nav-text">指针运算符&amp;和*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量与指针"><span class="nav-number">12.7.</span> <span class="nav-text">常量与指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组与指针"><span class="nav-number">12.8.</span> <span class="nav-text">数组与指针</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符"><span class="nav-number">13.</span> <span class="nav-text">字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取输入的操作"><span class="nav-number">14.</span> <span class="nav-text">读取输入的操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1011,6 +918,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
