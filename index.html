@@ -242,6 +242,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/Artop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whale">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HJ's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/11/Artop/" itemprop="url">Artop</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T21:13:42+08:00">
+                2019-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Artop的调研"><a href="#Artop的调研" class="headerlink" title="Artop的调研"></a>Artop的调研</h1><ol>
+<li>Artop的使用的话只开放给Design Member（设计成员，是对用户组的策略和整体设计有重大影响），Contributing Member（对Artop做出贡献并参与Artop的技术内容）和Adopter（根据相应的Artop软件许可的规定免费使用，修改和构建Artop的一方。没有正式的流程可以成为Adopter，你可以从本网站下载并根据相应的Artop软件许可条款使用）。目前我们可以用学生的身份申请，但如果要基于它进行IDE的开发的话，肯定要成为User Group的成员。对AUTOSAR member和partner是免费开放的。</li>
+<li>Artop是用于开发工具的通用基础功能的基础架构平台实现，用于设计和配置符合AUTOSAR标准的系统和ECU。基于Artop的完整AUTOSAR工具通常分为若干层，如下所示。 关于层的主要方面是Artop关注平台功能（蓝色）而不是最终用户功能（红色）。 最终用户功能是竞争层的一部分，不在Artop的范围内。 竞争层由工具供应商商业开发的专有插件组成。 此层上的插件使Artop适应最终用户需求并补充Artop的功能，以便工具供应商的产品满足最终用户的要求。在AUTOSAR工具的背景下，最终用户是直接参与基于AUTOSAR的系统或ECU开发的工程师。</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1565527937142-fa5d22ee-0758-44c8-ba7a-ba383d8a72c3.png#align=left&display=inline&height=167&name=image.png&originHeight=167&originWidth=489&size=30559&status=done&width=489" alt="image.png"><br>Artop提供的主要组件包括：<br>元模型实现和序列化<br>工作区管理<br>元模型扩展器<br>资源管理器和编辑<br>模型比较<br>模型验证<br>ECUC的代码生成基础设施<br><a name="PbVew"></a></p>
+<h2 id="ARText"><a href="#ARText" class="headerlink" title="ARText"></a>ARText</h2><ol>
+<li>ARText是Artop的子项目，是用于为AUTOSAR构建文本建模语言的框架。用来描述复杂系统的有效手段。ARText基于Xtext（Xtext是用来开发编程语言或领域专用语言的框架，可以定义语法）。ARText使用专门用于AUTOSAR领域的功能扩展Xtext，并在Artop中提供编辑器的完全集成。</li>
+</ol>
+<ul>
+<li>优点：</li>
+<li>ARText编辑器提供丰富的文本编辑环境，包括语法突出显示，代码完成，集成验证等。</li>
+<li>与其他AUTOSAR资源无缝衔接。例如AUTOSAR XML。可以从ARText文件引用XML定义的实体，XML也可以引用ARText定义的实体。</li>
+<li>支持标准AUTOSAR交换格式。可以讲ARText语言定义的AUTOSAR模型导出为XML.</li>
+</ul>
+<ol start="2">
+<li>ARText已经有几种文本语言。SWC 语言，时序语言，公式语言（支持再AUTOSAR模型中指定和评估公式），变量语言。<br><a name="NPLb1"></a><h2 id="ARUnit"><a href="#ARUnit" class="headerlink" title="ARUnit"></a>ARUnit</h2>AUTOSAR软件组件的单元测试也是Artop的子项目。可在任何典型的基于Eclipse/Artop环境中运行。<br>ARUnit为AUTOSAR软件组件提供轻量级测试环境。 它……为在所有主要桌面平台上运行的单个软件组件生成RTE。 …提供API以从外部激发和查询RTE的状态。 …可以对特定的SWC功能进行有效和高效的单元测试。<blockquote>
+<p>这个工具的原因是为了在开发周期中尽早进行连续且严格的测试过程，而且所有软件组件都需要在RTE内运行，为了生成功能齐全的标准的RTE。</p>
+</blockquote>
+</li>
+</ol>
+<p>** 主要功能为：为一个单独的软件组件生成功能齐全的，符合AUTOSAR标准的RTE。可以编译并与实际的软件组件代码连接，并在所有主要的桌面平台上运行。<strong>除了RTE接口的面向组件的一侧之外，ARUnit还生成公开可见的API，通过该API可以从外部监控和激励RTE的状态，即通常通过测试用例。<br></strong>但是！！！！它不模拟ECU或RTOS。没有可运行和任务的调度，因此对于更复杂的场景，您必须手动编排runnables的调用。由于ARUnit专注于单个软件组件的单元测试，因此我们目前不支持组合。**</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1565528319891-8b88dd26-7880-4956-8c27-553abef4663b.png#align=left&display=inline&height=276&name=image.png&originHeight=276&originWidth=437&size=24431&status=done&width=437" alt="image.png"><br>用来测试的公共API语法遵循与“内部”API相同的语法和名义约定，但所有函数名称都以ARUnit_而不是Rte_开头。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ARUnit_Write_Calculator_AdditionInput_OperandA(summand1); ARUnit_Write_Calculator_AdditionInput_OperandB(summand2); </span><br><span class="line"> // call SWC runnable ARUnit_Trigger_Calculator_Cyclic();</span><br></pre></td></tr></table></figure>
+
+<p>ARUnit还提供（基于模拟的测试方法）基于GMock的RTE实现，其中RTE调用被转发到GMocke的C ++类。<br>还提供扩展点以将自定义生成器挂载到生成过程中。因此可以提供额外的生成步骤，例如用C ++或Python生成RTE包装器API。<br>还提供可从命令行启动的单独生成器可执行文件。这允许与自动构建系统轻松集成。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/title/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -844,7 +988,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
