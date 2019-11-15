@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565527937142-fa5d22ee-0758-44c8-ba7a-ba383d8a72c3.png#align=left&display=inline&height=167&name=image.png&originHeight=167&originWidth=489&size=30559&status=done&width=489">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565528319891-8b88dd26-7880-4956-8c27-553abef4663b.png#align=left&display=inline&height=276&name=image.png&originHeight=276&originWidth=437&size=24431&status=done&width=437">
-<meta property="og:updated_time" content="2019-08-14T09:30:54.933Z">
+<meta property="og:updated_time" content="2019-11-15T05:52:02.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Artop">
 <meta name="twitter:description" content="Artop的调研 1 概述 1.1 权限Artop的使用的话只开放给Design Member（设计成员，是对用户组的策略和整体设计有重大影响），Contributing Member（对Artop做出贡献并参与Artop的技术内容）和Adopter（根据相应的Artop软件许可的规定免费使用，修改和构建Artop的一方。没有正式的流程可以成为Adopter，你可以从本网站下载并根据相应的Arto">
@@ -333,12 +333,9 @@
 <h3 id="2-1-2-元模型和序列化"><a href="#2-1-2-元模型和序列化" class="headerlink" title="2.1.2 元模型和序列化"></a>2.1.2 元模型和序列化</h3><p>Artop为AUTOSAR的最新版本都提供了元模型实现，Artop为这些修订提供原生支持，修订均由转换器支持，转换器处理XML级别的修订之间的元模型微小变化。</p>
 <p>元模型是<strong>EMF（Eclipse Modeling Framework）</strong>生成的代码。<br>gautosar（generic autosar）通用autosar元模型是位于具体元模型上方的图层，这意味着具体的元模型实现从gautosar层继承。gautosar层定义了一组接口，这些接口与所有元模型版本相同。<br>目前，gautosar层有三个元模型子集。</p>
 <ul>
-<li><p>基础设施（AUTOSAR对象，ARPackage，ArObject ……）</p>
-</li>
-<li><p>Ecuc参数定义</p>
-</li>
-<li><p>Ecuc描述 </p>
-<pre><code>首先，您需要导入元模型生成项目集。 根据您使用的Subversion客户端插件，您需要导入MM Gen. Subversive项目集或MM Gen. Subclipse项目集。 gautosar图层由gautosar.ecore文件定义。&lt;br /&gt;对元模型的操作都是先对gautosar进行操作：1.对gautosar层增加新的接口 2.对gautosar接口增加新的methods&lt;br /&gt;具体操作细节见：[链接](https://www.artop.org/mediawiki/index.php?title=Meta_Models_%26_Serialization)</code></pre></li>
+<li>基础设施（AUTOSAR对象，ARPackage，ArObject ……）</li>
+<li>Ecuc参数定义</li>
+<li>Ecuc描述<br>首先，您需要导入元模型生成项目集。 根据您使用的Subversion客户端插件，您需要导入MM Gen. Subversive项目集或MM Gen. Subclipse项目集。 gautosar图层由gautosar.ecore文件定义。<br>对元模型的操作都是先对gautosar进行操作：1.对gautosar层增加新的接口 2.对gautosar接口增加新的methods<br>具体操作细节见：<a href="https://www.artop.org/mediawiki/index.php?title=Meta_Models_%26_Serialization" target="_blank" rel="noopener">链接</a></li>
 </ul>
 <p><a name="KSym1"></a></p>
 <h2 id="2-2-Validation-Sub-Project"><a href="#2-2-Validation-Sub-Project" class="headerlink" title="2.2 Validation Sub-Project"></a>2.2 Validation Sub-Project</h2><p>一个框架，提供验证加载的AUTOSAR和非AUTOSAR模型的功能。<br><a name="0MUXo"></a></p>
@@ -365,7 +362,7 @@
 </blockquote>
 </li>
 </ol>
-<p>** 主要功能为：为一个单独的软件组件生成功能齐全的，符合AUTOSAR标准的RTE。可以编译并与实际的软件组件代码连接，并在所有主要的桌面平台上运行。<strong>除了RTE接口的面向组件的一侧之外，ARUnit还生成公开可见的API，通过该API可以从外部监控和激励RTE的状态，即通常通过测试用例。<br></strong>但是！！！！它不模拟ECU或RTOS。没有可运行和任务的调度，因此对于更复杂的场景，您必须手动编排runnables的调用。由于ARUnit专注于单个软件组件的单元测试，因此我们目前不支持组合。**</p>
+<p>主要功能为：为一个单独的软件组件生成功能齐全的，符合AUTOSAR标准的RTE。可以编译并与实际的软件组件代码连接，并在所有主要的桌面平台上运行。<strong>除了RTE接口的面向组件的一侧之外，ARUnit还生成公开可见的API，通过该API可以从外部监控和激励RTE的状态，即通常通过测试用例。<br></strong>但是！！！！它不模拟ECU或RTOS。没有可运行和任务的调度，因此对于更复杂的场景，您必须手动编排runnables的调用。由于ARUnit专注于单个软件组件的单元测试，因此我们目前不支持组合。</p>
 <p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1565528319891-8b88dd26-7880-4956-8c27-553abef4663b.png#align=left&display=inline&height=276&name=image.png&originHeight=276&originWidth=437&size=24431&status=done&width=437" alt="image.png"><br>用来测试的公共API语法遵循与“内部”API相同的语法和名义约定，但所有函数名称都以ARUnit_而不是Rte_开头。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ARUnit_Write_Calculator_AdditionInput_OperandA(summand1); ARUnit_Write_Calculator_AdditionInput_OperandB(summand2); </span><br><span class="line"> // call SWC runnable ARUnit_Trigger_Calculator_Cyclic();</span><br></pre></td></tr></table></figure>
 

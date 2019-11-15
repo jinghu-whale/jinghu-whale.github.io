@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="HJ&#39;s Blog">
 <meta property="og:description" content="Linux Linux编译问题由于AUTOSAR代码文件较多，所以运用Linux的make命令编译较为快捷。将代码在linux下编译完成后，将生成的可执行文件传回window系统烧写入单片机。整个编译流程，需要经历三个过程。将windows的代码文件传到linux上，在linux系统里编译，将编译完成的可执行文件重新传回windows系统。  1.windows系统与虚拟机linux间的文件互传w">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-09T09:07:25.226Z">
+<meta property="og:updated_time" content="2019-11-15T05:49:08.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux">
 <meta name="twitter:description" content="Linux Linux编译问题由于AUTOSAR代码文件较多，所以运用Linux的make命令编译较为快捷。将代码在linux下编译完成后，将生成的可执行文件传回window系统烧写入单片机。整个编译流程，需要经历三个过程。将windows的代码文件传到linux上，在linux系统里编译，将编译完成的可执行文件重新传回windows系统。  1.windows系统与虚拟机linux间的文件互传w">
@@ -314,18 +314,17 @@
 <p><a name="A85EL"></a></p>
 <h2 id="1-windows系统与虚拟机linux间的文件互传"><a href="#1-windows系统与虚拟机linux间的文件互传" class="headerlink" title="1.windows系统与虚拟机linux间的文件互传"></a>1.windows系统与虚拟机linux间的文件互传</h2><p>windows系统与ubuntu虚拟机之间的文件互传有多种方式。</p>
 <ul>
-<li><p><strong>直接通过u盘拷贝。</strong>先使用fdisk-l命令查看U盘是否被识别到，且识别到哪个位置；在mnt中建立一个usb（随意命名）的文件夹；然后挂载到其识别到的U盘位置。就可以将U盘中的文件在linux下使用了。</p>
-</li>
-<li><p><strong>通过软件传输。</strong>在linux下下载一些专门用来传文件的软件即可。</p>
-</li>
-<li><p><strong>通过共享文件夹。</strong>通过设置虚拟机里面的共享文件夹，实现两个系统之间的互传。</p>
-<pre><code>打开VMware，然后在菜单栏的虚拟机设置中，选择选项，启用共享文件夹。并在windows系统下创建一个文件夹（任意位置）作为共享文件夹并添加；然后将该共享文件夹挂载到mnt上，一般共享的文件夹默认在/mnt/hgfs路径下。&lt;br /&gt;     如果在hgfs目录中看不到共享文件夹，可能是没有安装VMware Tools。直接在VMware 虚拟机中的应用程序菜单中，点击安装VMware Tools安装即可。&lt;br /&gt;    然后在图形化界面对共享文件夹的文件进行操作就可以了，右键需要传输的文件 用move to或copy to将其传到共享文件夹里就两个系统可共同访问。（Q：用cp命令将文件复制到共享文件夹的时候，会出现 fuse：mountpoint is not empty fuse： if you are sure this is safe, use the &apos;nonempty&apos; mount option。不知道什么原因）</code></pre></li>
+<li><strong>直接通过u盘拷贝。</strong>先使用fdisk-l命令查看U盘是否被识别到，且识别到哪个位置；在mnt中建立一个usb（随意命名）的文件夹；然后挂载到其识别到的U盘位置。就可以将U盘中的文件在linux下使用了。</li>
+<li><strong>通过软件传输。</strong>在linux下下载一些专门用来传文件的软件即可。</li>
+<li><strong>通过共享文件夹。</strong>通过设置虚拟机里面的共享文件夹，实现两个系统之间的互传。<br>打开VMware，然后在菜单栏的虚拟机设置中，选择选项，启用共享文件夹。并在windows系统下创建一个文件夹（任意位置）作为共享文件夹并添加；然后将该共享文件夹挂载到mnt上，一般共享的文件夹默认在/mnt/hgfs路径下。<br>   如果在hgfs目录中看不到共享文件夹，可能是没有安装VMware Tools。直接在VMware 虚拟机中的应用程序菜单中，点击安装VMware Tools安装即可。然后在图形化界面对共享文件夹的文件进行操作就可以了，右键需要传输的文件 用move to或copy to将其传到共享文件夹里就两个系统可共同访问。（Q：用cp命令将文件复制到共享文件夹的时候，会出现 fuse：mountpoint is not empty fuse： if you are sure this is safe, use the ‘nonempty’ mount option。不知道什么原因）</li>
 </ul>
 <p><a name="bLy46"></a></p>
-<h2 id="2-linux下的make命令编译"><a href="#2-linux下的make命令编译" class="headerlink" title="2.linux下的make命令编译"></a>2.linux下的make命令编译</h2><pre><code>make是一个非常重要的编译工具，尤其是应用在大型的开发项目。可将其分解为多个更易于管理的模块，对于一个包括几百个源文件的应用程序，可以通过make和makefile处理各个源文件之间的相互关系。&lt;br /&gt;make命令会去搜寻当前目录下的makefile文件，makefile文件主要用来描述各个文件之间的依赖与相互关系，整个工程所有文件的编译顺序和编译规则。makefile的编写是make正常工作的基础。make是一个命令工具，解释makefile中的规则。&lt;br /&gt;makefile的格式：  target……：prequisites……&lt;br /&gt;                            command&lt;br /&gt;     另外为了便于维护，在makefile中我们可以使用变量（可理解为C语言中的宏）&lt;br /&gt;   </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objects=main.o command.o</span><br></pre></td></tr></table></figure>
+<h2 id="2-linux下的make命令编译"><a href="#2-linux下的make命令编译" class="headerlink" title="2.linux下的make命令编译"></a>2.linux下的make命令编译</h2><p>make是一个非常重要的编译工具，尤其是应用在大型的开发项目。可将其分解为多个更易于管理的模块，对于一个包括几百个源文件的应用程序，可以通过make和makefile处理各个源文件之间的相互关系。make命令会去搜寻当前目录下的makefile文件，makefile文件主要用来描述各个文件之间的依赖与相互关系，整个工程所有文件的编译顺序和编译规则。makefile的编写是make正常工作的基础。make是一个命令工具，解释makefile中的规则。<br>makefile的格式：  target……：prequisites……<br>                 command<br>    另外为了便于维护，在makefile中我们可以使用变量（可理解为C语言中的宏）   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objects=main.o command.o</span><br></pre></td></tr></table></figure>
 
 <p>$(object)就可以使用这个变量的内容。</p>
-<pre><code>根据makefile文件的不同，全部编译的格式也会不同。autosar项目中使用的是：&lt;br /&gt;make BOARDDIR=stm32_stm3210c BDIR=../examples/xx/xx all&lt;br /&gt;需要注意的是make命令要在最顶层的makefile文件所在的目录下运行，否则会出错。&lt;br /&gt;编译成功后会生成obj的目标文件夹，里面有elf，s19，hex等格式的可执行文件。</code></pre>
+<pre><code>根据makefile文件的不同，全部编译的格式也会不同。autosar项目中使用的是：make BOARDDIR=stm32_stm3210c BDIR=../examples/xx/xx all</code></pre><p>需要注意的是make命令要在最顶层的makefile文件所在的目录下运行，否则会出错。<br>编译成功后会生成obj的目标文件夹，里面有elf，s19，hex等格式的可执行文件。</p>
+
       
     </div>
     
