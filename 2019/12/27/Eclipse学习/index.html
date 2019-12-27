@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Eclipse学习 缩写含义SWT 标准窗口小部件工具箱——用来生成本地化风格的用户交互界面组件，拥有独立于操作系统的APIJFace 基于SWT 提供对常用UI任务的支持；JDT Java开发工具PDE 插件开发环境——PDE提供自动创建、处理、调试和部署插件的工具； Eclipse平台允许任何人构建与环境和其他环境无缝集成的工具。工具与Eclipse无缝集成的关键是插件。除了小型的运行时内核之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse学习">
+<meta property="og:url" content="http://yoursite.com/2019/12/27/Eclipse学习/index.html">
+<meta property="og:site_name" content="HJ&#39;s Blog">
+<meta property="og:description" content="Eclipse学习 缩写含义SWT 标准窗口小部件工具箱——用来生成本地化风格的用户交互界面组件，拥有独立于操作系统的APIJFace 基于SWT 提供对常用UI任务的支持；JDT Java开发工具PDE 插件开发环境——PDE提供自动创建、处理、调试和部署插件的工具； Eclipse平台允许任何人构建与环境和其他环境无缝集成的工具。工具与Eclipse无缝集成的关键是插件。除了小型的运行时内核之">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565921181473-9e542633-e479-47a8-8e27-8fd788e3a447.png#align=left&display=inline&height=274&name=image.png&originHeight=274&originWidth=393&size=22256&status=done&style=none&width=393">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1573717456896-fee63b03-07d9-45e7-a630-e94b2835b14d.png#align=left&display=inline&height=191&name=image.png&originHeight=191&originWidth=303&size=13293&status=done&style=none&width=303">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1573722071082-17bbe71e-8622-48f3-ac01-c1655d906da6.png#align=left&display=inline&height=227&name=image.png&originHeight=227&originWidth=512&size=32490&status=done&style=none&width=512">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1573721595612-07bfb0fe-a89f-4ee8-ae40-68a4817d778e.png#align=left&display=inline&height=202&name=image.png&originHeight=202&originWidth=531&size=64360&status=done&style=none&width=531">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574003049676-713a80e4-134a-49ea-aa6c-7cccd39b8b91.png#align=left&display=inline&height=78&name=image.png&originHeight=156&originWidth=591&size=51119&status=done&style=none&width=295.5">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574003068217-8e77d748-cb7e-436b-9fdc-a8bcaf6006e7.png#align=left&display=inline&height=155&name=image.png&originHeight=309&originWidth=764&size=109788&status=done&style=none&width=382">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574003470341-bc6dc012-ca7f-4710-80e3-f35212995599.png#align=left&display=inline&height=307&name=image.png&originHeight=280&originWidth=369&size=45764&status=done&style=none&width=404">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574005259004-a8cab569-60e9-4170-9425-c2791a6763a6.png#align=left&display=inline&height=373&name=image.png&originHeight=746&originWidth=1002&size=177614&status=done&style=none&width=501">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574005265619-e6d2bbac-a7c0-4a5e-8349-ddf83eed0c99.png#align=left&display=inline&height=167&name=image.png&originHeight=334&originWidth=1009&size=106735&status=done&style=none&width=504.5">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574005280658-df63509d-7bc4-4a6c-b844-bf9fbb3cc485.png#align=left&display=inline&height=174&name=image.png&originHeight=347&originWidth=985&size=75057&status=done&style=none&width=492.5">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574325644109-eef8af15-57e3-4844-bd21-fd6901e7e111.png#align=left&display=inline&height=992&name=image.png&originHeight=992&originWidth=1288&size=118048&status=done&style=none&width=1288">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574327058585-1bf4c7d4-0368-4261-9da1-a3da038e525a.png#align=left&display=inline&height=714&name=image.png&originHeight=714&originWidth=717&size=76511&status=done&style=none&width=717">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574386625902-7363a803-b632-4c67-aae1-9ea626c701ab.png#align=left&display=inline&height=702&name=image.png&originHeight=702&originWidth=827&size=74518&status=done&style=none&width=827">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574388872641-003a2cae-2647-4933-a54b-51539e945f81.png#align=left&display=inline&height=323&name=image.png&originHeight=323&originWidth=656&size=25417&status=done&style=none&width=656">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574389676858-2e88417d-b255-4164-bc37-689b12ac32ea.png#align=left&display=inline&height=230&name=image.png&originHeight=230&originWidth=353&size=9471&status=done&style=none&width=353">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574390193884-f23f0cf4-570d-4ed9-9363-5598539c0689.png#align=left&display=inline&height=366&name=image.png&originHeight=366&originWidth=801&size=23579&status=done&style=none&width=801">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650979791-e35e3dc0-b2be-4209-a709-71a7c5a90a63.png#align=left&display=inline&height=626&name=image.png&originHeight=626&originWidth=509&size=57525&status=done&style=none&width=509">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574402282729-2b33adb5-017c-49b0-9165-188f6cf97959.png#align=left&display=inline&height=702&name=image.png&originHeight=702&originWidth=1056&size=99804&status=done&style=none&width=1056">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650038054-de6438bc-0e97-4592-92f3-d8b7d1d77105.png#align=left&display=inline&height=452&name=image.png&originHeight=452&originWidth=345&size=19104&status=done&style=none&width=345">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650048030-a754a62c-3fb3-4677-ac3c-a4fb6a929b95.png#align=left&display=inline&height=493&name=image.png&originHeight=493&originWidth=694&size=19752&status=done&style=none&width=694">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650316389-4e96dd34-8600-483f-892c-730967418392.png#align=left&display=inline&height=153&name=image.png&originHeight=153&originWidth=522&size=8776&status=done&style=none&width=522">
+<meta property="og:updated_time" content="2019-12-27T11:03:19.064Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eclipse学习">
+<meta name="twitter:description" content="Eclipse学习 缩写含义SWT 标准窗口小部件工具箱——用来生成本地化风格的用户交互界面组件，拥有独立于操作系统的APIJFace 基于SWT 提供对常用UI任务的支持；JDT Java开发工具PDE 插件开发环境——PDE提供自动创建、处理、调试和部署插件的工具； Eclipse平台允许任何人构建与环境和其他环境无缝集成的工具。工具与Eclipse无缝集成的关键是插件。除了小型的运行时内核之">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2019/png/436186/1565921181473-9e542633-e479-47a8-8e27-8fd788e3a447.png#align=left&display=inline&height=274&name=image.png&originHeight=274&originWidth=393&size=22256&status=done&style=none&width=393">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/27/Eclipse学习/">
+
+
+
+
+
+  <title>Eclipse学习 | HJ's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HJ's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/27/Eclipse学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whale">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HJ's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Eclipse学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-27T19:02:47+08:00">
+                2019-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Eclipse学习"><a href="#Eclipse学习" class="headerlink" title="Eclipse学习"></a>Eclipse学习</h1><p><a name="Ahd9o"></a></p>
+<h2 id="缩写含义"><a href="#缩写含义" class="headerlink" title="缩写含义"></a>缩写含义</h2><p>SWT 标准窗口小部件工具箱——用来生成本地化风格的用户交互界面组件，拥有独立于操作系统的API<br>JFace 基于SWT 提供对常用UI任务的支持；<br>JDT Java开发工具<br>PDE 插件开发环境——PDE提供自动创建、处理、调试和部署插件的工具；</p>
+<p>Eclipse平台允许任何人构建与环境和其他环境无缝集成的工具。工具与Eclipse无缝集成的关键是插件。除了小型的运行时内核之外，Eclipse中的所有东西都是插件。<br>如图所示，Workbench和Workspace是Eclipse平台两个必备的插件——它们提供了大多数插件使用的扩展点，插件需要扩展点菜可以插入，这样才能运行。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1565921181473-9e542633-e479-47a8-8e27-8fd788e3a447.png#align=left&display=inline&height=274&name=image.png&originHeight=274&originWidth=393&size=22256&status=done&style=none&width=393" alt="image.png"><br>Debug组件 可以让插件启动程序、与正在运行的程序交互，以及处理错误——这是构建调试器所必需的。<br>Team组件 允许 Eclipse 资源与版本控制系统（VCS）交互。<br>Help组件 提供应用程序的联机文档和与上下文敏感的帮助。</p>
+<p><a name="yMtlL"></a></p>
+<h2 id="创建插件"><a href="#创建插件" class="headerlink" title="创建插件"></a>创建插件</h2><p>使用Plug-in Development Environment（PDE）。PDE 和 Java Development Tooling（JDT）IDE 是 Eclipse 的标准扩展。PDE 提供了一些向导以帮助创建插件。<br>PDE的界面里，工作台是向导创造的一些文件：包含项目类路径中的许多.jar文件（里面包含插件和Java运行时所需的Eclipse类），一个图标文件夹icons（包含了工具栏按钮的图形），以及bulid.properties文件（包含自动构建脚本所使用的变量），src文件夹里面包含了插件和plugin.xml文件的源代码。</p>
+<p>plugin.xml包含了Eclipse将插件集成到框架所使用的描述信息。<br>插件释义：</p>
+<p><code>org.eclipse.core.resources</code> 是工作区插件<br><code>org.eclipse.ui</code> 是工作台</p>
+<p>如果你要在插件上增加扩展点，用extension标记。操作集合是插件添加到工作台用户界面的一组基值——菜单、菜单栏和工具栏。操作集合分组了基值，这样用户可以更方便地管理。</p>
+<p>完成所有的操作后代码生成向导会生成两个java源文件，在src里。<br>第一个xxPlugin.java是插件类，负责管理插件的生命周期，可能还负责维护对话框设置和用户首选项等内容。<br>第二个为sampleAction.java。包含执行在清单文件的操作集合中指定的操作类。<br>（清单文件就是manifest file文件，是jar档案中包含的特殊文件。jar文件用于聚合大量的Java类文件、相关元数据和资源，一个jar文件允许java运行时高效地部署一组类和它们相关的资源，启动的话需要manifest.mf。如果jar文件被用作可执行地应用程序，任意包含<code>public static void main(String[] args)</code>方法的类即为java虚拟机入口点点位置）。<br>清单文件Manifest.MF，标记插件并提供依赖关系信息，其内容包含：<br>必须的套件：与其他插件的依赖关系<br>导出的包：使该插件对其他插件可见的包<br>插件轻但文件名为Plugin.xml，声明到其他插件的相互连接，该文件可以定义：<br>扩展点：用于其他插件的功能的声明<br>扩展：其他插件扩展点的用法（实现）</p>
+<p><a name="qXPM4"></a></p>
+<h2 id="运行和调试插件"><a href="#运行和调试插件" class="headerlink" title="运行和调试插件"></a>运行和调试插件</h2><p><a name="gL1ht"></a></p>
+<h2 id="EMF建模"><a href="#EMF建模" class="headerlink" title="EMF建模"></a>EMF建模</h2><p>EMF是Eclipse建模项目的核心，提供基本功能如模型转换、数据库集成和图形编辑器生成等。<br>EMF统一了Java、XML和UML这三种表示。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1573717456896-fee63b03-07d9-45e7-a630-e94b2835b14d.png#align=left&display=inline&height=191&name=image.png&originHeight=191&originWidth=303&size=13293&status=done&style=none&width=303" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1573722071082-17bbe71e-8622-48f3-ac01-c1655d906da6.png#align=left&display=inline&height=227&name=image.png&originHeight=227&originWidth=512&size=32490&status=done&style=none&width=512" alt="image.png"></p>
+<p>EClass用来表示建模类。有名称、0个或多个属性、0个或多个引用；<br>EAttribute用来表示模型属性，属性有名称和类型；<br>EReference用来表示类之间关联的一端。有名称还有引用目标类型。<br>EDataType用来表示属性的类型。数据类型可能是基本类型或对象类型。<br>EObject是相当于java.lang.Object的EMF对等物，是所有模型化对象的基础。</p>
+<p>XMI串行化（XML Metadata Interchange,XMI) XML元数据互换</p>
+<p><a href="https://baike.baidu.com/item/XML" target="_blank" rel="noopener">XML</a>元数据交换(XML Metadata Interchange)，简称XMI，是由OMG组织开发的，它是统一建模语言<a href="https://baike.baidu.com/item/UML/446747" target="_blank" rel="noopener">UML</a>模型中元数据的标准交换方式。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1573721595612-07bfb0fe-a89f-4ee8-ae40-68a4817d778e.png#align=left&display=inline&height=202&name=image.png&originHeight=202&originWidth=531&size=64360&status=done&style=none&width=531" alt="image.png"></p>
+<p><a name="U0zJP"></a></p>
+<h3 id="生成代码"><a href="#生成代码" class="headerlink" title="生成代码"></a>生成代码</h3><p>Ecore模型 元模型的模型，定义元模型的基本属性。Ecore和XMI串行化是EMF的核心。Java实现代码或者模型的其他形式可以从Ecore模型生成。（Ecore中保存有生成的类及名称、属性、引用，然而对于生成代码的话还缺少保存在何处，生成的factory和package名称使用什么前缀等等）<br>所以这个问题是通过EMF生成器模型来解决的。生成器模型保存这些信息，本身也是EMF模型。实际上就是EMF生成的编辑器。</p>
+<p>为模型生成的两个重要类：工厂（factory)类和包（package）类。生成的工厂包含模型中每个类的方法，EMF建议使用工厂创建对象。可为模型的所有Ecore元数据提供便利的存取器。</p>
+<p>EMF生成代码：使用EMF项目向导创建一个项目，将自动启动生成器，然后从菜单中选择Generate Model Code命令。<br>EMF生成器还可以根据需要生成：</p>
+<ul>
+<li>模型的框架适配器工厂类（POAdapterFactory）</li>
+<li>便利的转换类（POSwitch）</li>
+<li>插件清单文件和属性文件，从而使模型可用作Eclipse插件</li>
+</ul>
+<p>不过EMF生成器生成的文件是生成文件和手动编写文件的组合，需要编辑生成的类来添加方法和实例变量。可以一直从模型中生成，在重新生成的过程中会保存添加的内容。这些被生成的代码字段都会被@generate标记。</p>
+<p><a name="qG58p"></a></p>
+<h2 id="使用EMF-Edit编辑模型"><a href="#使用EMF-Edit编辑模型" class="headerlink" title="使用EMF.Edit编辑模型"></a>使用EMF.Edit编辑模型</h2><p>eclipse还提供了EMF.Edit为模型构建查看器和编辑器，可以生成一个使用JFace查看器的属性表显示和编辑模型的实例。<br>EMF.Edit包含一组用于修改EMF对象的通用命令，这些命令扩展在公共命令组件中定义的接口并建立在这些解耦之上，使用反射EObject API来操作对象，并实施对Ecore 的依赖关系。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574003049676-713a80e4-134a-49ea-aa6c-7cccd39b8b91.png#align=left&display=inline&height=78&name=image.png&originHeight=156&originWidth=591&size=51119&status=done&style=none&width=295.5" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574003068217-8e77d748-cb7e-436b-9fdc-a8bcaf6006e7.png#align=left&display=inline&height=155&name=image.png&originHeight=309&originWidth=764&size=109788&status=done&style=none&width=382" alt="image.png"></p>
+<p>EMF可以通过几种形式来使用模型定义，并为它生成Java实现代码。如果给定相同的模型定义，也可以使用EMF.Edit代码生成支持 来生成项提供程序和编辑模型实例所需的其他类，EMF.Edit不是一个单独的工具，是模型生成器的另一种也行。生成模型之后，可以通过Generate Edit Code和Generate Editor Code菜单项来生成EMF.Edit部分。<br><a name="wVoPb"></a></p>
+<h2 id="使用EMF的流程"><a href="#使用EMF的流程" class="headerlink" title="使用EMF的流程"></a>使用EMF的流程</h2><p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574003470341-bc6dc012-ca7f-4710-80e3-f35212995599.png#align=left&display=inline&height=307&name=image.png&originHeight=280&originWidth=369&size=45764&status=done&style=none&width=404" alt="image.png"><br>一个简单的采购订单的UML模型，图中显示了类、属性、引用、互相间的关系。</p>
+<p>因为EMF模型驻留在一个插件中，而编辑器独立于UI和UI相关的部分驻留在另外两个插件中。所以EMF开发工具将基于JDT和PDE并与它们一起使用。EMF项目有java的清单文件，但特别在与还包含（生成器模型文件（.genmodel) Ecore模型文件（.ecore)</p>
+<p>新建EMF模型 （选择合适的模型导入器，包括 注释的java代码，类图，ecore模型（已有ecore模型 导入它创建生成器模型），xml文件），这个向导为模型创建Ecore和生成器模型。</p>
+<p>（（从特定模型格式转换到Ecore这种机制，是通过扩展模型导入器扩展点org.eclipse.emf.importer.modelImporterDescriptors)已支持这种格式。</p>
+<p>生成模型和编辑器插件的代码之后，使用这些插件来创建和编辑模型的实例。</p>
+<p><a name="TCBNA"></a></p>
+<h3 id="XML-Schema"><a href="#XML-Schema" class="headerlink" title="XML Schema"></a>XML Schema</h3><p>EMF提供了一种基于XML Schema的方法，可以通过创建一个对象模型来操作某种类型的XML数据结构。EMF创建一个对应于某种模式的Ecore模型，从而我们可以利用代码生成器或者动态EMF来提供一个用于操作该模型实例的jAVA api。</p>
+<p>在建模的角度看，XML不太具有表现力，不能用来定义双向引用，或者提供引用目标的类型。为了解决这个问题，EMF以来自Ecore名称空间的属性的形式提供一组到XML的扩展，用来指定这些遗漏的信息。xml schema主要是定义xml实例文档的结构，可以被串行化为XML。（    XMI）信息来源于eclipse/emf/ecore/util/ExtendedMetaData.</p>
+<p>EMF的核心价值是其生成高质量代码的能力。另外EMF代码生成其的可配置性很强，使用户对它生成的模型和编辑器实现有很大的控制权。</p>
+<p>代码生成基于Ecore模型，生成直接对应于这种模型内定义的包、类和枚举类型的类；这些生成的类的成员基于属性、引用、操作和枚举字面值。<br>生成文件包含两个步骤：首先，内容是由一个模板驱动的引擎——JET或者java发射器模板（java emitter tamplates）生成，引擎将每个模板转换为将混合固定模板数据和回调对应于具体模型的结果的java类源代码；之后它将编译、动态加载、并使用这些类来发射期望的内容。第二步，一个源文件合并实用程序（JMerge）将发射的内容合并到预存在的文件中，基于@generated javadoc标记<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574005259004-a8cab569-60e9-4170-9425-c2791a6763a6.png#align=left&display=inline&height=373&name=image.png&originHeight=746&originWidth=1002&size=177614&status=done&style=none&width=501" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574005265619-e6d2bbac-a7c0-4a5e-8349-ddf83eed0c99.png#align=left&display=inline&height=167&name=image.png&originHeight=334&originWidth=1009&size=106735&status=done&style=none&width=504.5" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574005280658-df63509d-7bc4-4a6c-b844-bf9fbb3cc485.png#align=left&display=inline&height=174&name=image.png&originHeight=347&originWidth=985&size=75057&status=done&style=none&width=492.5" alt="image.png"><br><a name="TiQht"></a></p>
+<h2 id="Eclipse各文件的含义"><a href="#Eclipse各文件的含义" class="headerlink" title="Eclipse各文件的含义"></a>Eclipse各文件的含义</h2><p>plugin.xml文件配置（菜单，工具栏，弹出菜单）<br>menu配置eclipse菜单栏；<br>toolbar配置eclipse工具栏；<br>popupMenus配置鼠标右击弹出菜单；</p>
+<p>一个可以被eclipse安装的插件需要包含<em>.jar文件（有一个继承AbstractUIPlugin的插件类）、清单文件以及所需的资源。含两个文件夹 fetures和plugins。<br>links文件夹里，</em>.link文件是链接文件，每个链接文件都指向一个产品扩展位置。eclipse启动时会自动扫描这个文件夹去寻找插件并安装。（不是必须）<br>myplugin中存放自己开发的插件<br>workspace是默认工程目录<br>otherplugin中存放一些需要管理的插件，每一个插件文件夹里都包含一个eclipse，eclipse文件夹里包含features，plugins和一个空文件*.eclipseextension。<br>target中存放eclipse rcp sdk解压后的文件</p>
+<p><a name="pWnB1"></a></p>
+<h3 id="Plugin-xml文件"><a href="#Plugin-xml文件" class="headerlink" title="Plugin.xml文件"></a>Plugin.xml文件</h3><!-- url指定插件主页的url（也可从Plugins设置里打开）--><br><idea-plugin url="https://www.jetbrains.com/idea">
+
+
+  <!-- 插件名称--><br>  <name>VssIntegration</name>
+
+
+  <!--插件的唯一标识符，如果没有指定默认为name，但会导致一些脆弱的结果 --><br>  <id>com.jetbrains.vssintegration</id>
+
+
+  <!--插件的描述，要简单明了 。<br />      对于添加语言/平台/框架支持的插件，要指定这些的版本--><br>  <description>Integrates Volume Snapshot Service W10</description>
+
+
+  <!-- 描述插件最新版本的变化--><br>  <change-notes>Initial release of the plugin.</change-notes>
+
+
+  <!-- 插件的版本  --><br>   <version>1.0.0</version>
+
+
+  <!-- 插件的供应商--><br>   <vendor url="https://www.jetbrains.com" email="support@jetbrains.com">A Company Inc.</vendor>
+
+
+  <!--对其他插件或模块的强制性依赖 。<br />      <depend>中的FQN模块名用于确定插件的IDE兼容性  -->
+<p>  <depends>com.intellij.modules.platform</depends><br>  <depends>com.third.party.plugin</depends></p>
+  <!-- 可选的依赖的另一个插件。<br />       如果这个插件的"com.MySecondPlugin" ID 被安装, <br />       那么这个mysecondplugin.xml会被加载. --><br>  <depends optional="true" config-file="mysecondplugin.xml">com.MySecondPlugin</depends>
+
+
+  <!-- 与插件兼容的IDE的最小和最大构建--><br>  <idea-version since-build="183" until-build="183.*">
+
+
+
+  <!-- 资源包 (/messages/MyPluginBundle.properties)在扩展点和隐藏键被key属性使用 <br />        like
+       `action.[pluginID].[ActionID].text` --><br>  <resource-bundle>messages.MyPluginBundle</resource-bundle>
+
+
+  <!-- 插件的应用程序组件 --><br>  <application-components><br>
+<pre><code>&lt;component&gt;&lt;br /&gt;      &lt;!-- 组件的接口类 --&gt;&lt;br /&gt;      &lt;interface-class&gt;com.foo.Component1Interface&lt;/interface-class&gt;&lt;br /&gt;
+  &lt;!-- 组件的实现类 --&gt;&lt;br /&gt;      &lt;implementation-class&gt;com.foo.impl.Component1Impl&lt;/implementation-class&gt;&lt;br /&gt;
+&lt;/component&gt;&lt;br /&gt;</code></pre>  </application-components>
+
+
+  <!-- 插件的项目组件 --><br>  <project-components><br>    <component><br>      <!--接口和实现类是一样的 --><br>
+<pre><code>&lt;implementation-class&gt;com.foo.Component2&lt;/implementation-class&gt;&lt;br /&gt;&lt;!--如果workspace选项设置为ture，那么组件会将其状态保存到.iws文件中&lt;br /&gt;      而不是保存到.ipr文件中。&lt;br /&gt;      注意，只有在组件实现JDOMExternalizable接口时才使用&lt;option&gt;element。&lt;br /&gt;      否则，使用&lt;option&gt;将不起作用--&gt;&lt;br /&gt;      &lt;option name=&quot;workspace&quot; value=&quot;true&quot; /&gt;&lt;br /&gt;
+&lt;!-- 如果存在 &quot;loadForDefaultProject&quot; 标记，则也为默认项目实例化项目组件。--&gt;&lt;br /&gt;
+&lt;loadForDefaultProject/&gt;&lt;br /&gt;    &lt;/component&gt;&lt;br /&gt;  &lt;/project-components&gt;</code></pre>  <!-- 插件的模块组件 --><br>  <module-components><br>    <component><br>      <implementation-class>com.foo.Component3</implementation-class><br>    </component><br>  </module-components>
+
+
+  <!-- Actions --><br>  <actions><br>
+<pre><code>&lt;action id=&quot;VssIntegration.GarbageCollection&quot; class=&quot;com.foo.impl.CollectGarbage&quot; text=&quot;Collect _Garbage&quot; description=&quot;Run garbage collector&quot;&gt;&lt;br /&gt;      &lt;keyboard-shortcut first-keystroke=&quot;control alt G&quot; second-keystroke=&quot;C&quot; keymap=&quot;$default&quot;/&gt;&lt;br /&gt;
+&lt;/action&gt;&lt;br /&gt;</code></pre>  </actions>
+
+
+
+  <!-- 插件定义的扩展点。<br />       扩展点由插件注册，这样其他插件可为这个插件提供需要的数据。<br />       "beanClass"属性指定可用于扩展点的实现的类。--><br>  <extensionpoints><br>    <extensionpoint name="testExtensionPoint" beanclass="com.foo.impl.MyExtensionBean"><br>
+  </extensionpoint></extensionpoints>
+
+
+  <!-- 插件添加到IntelliJ平台或其他插件定义的扩展点上的扩展。 <br />       "defaultExtensionNs "属性必须设置为定义扩展点的插件的ID，<br />        或者设置为"com.intellij" （如果扩展点是由IntelliJ平台定义的）. <br />        <extensions>标记中的标记名称与扩展点的名称匹配，<br />         而 "implementation"类指定添加到扩展点的类的名称. --><br>  <extensions xmlns="VssIntegration"><br>    <testextensionpoint implementation="com.foo.impl.MyExtensionImpl"><br>  </testextensionpoint></extensions><br></component></project-components></idea-version></idea-plugin>
+
+<p><a name="6JqKZ"></a></p>
+<h2 id="Eclipse插件开发"><a href="#Eclipse插件开发" class="headerlink" title="Eclipse插件开发"></a>Eclipse插件开发</h2><p>（以一个开发实例为例，这个插件是通过插件模板中的视图模板来创建的。<br>file——new——plug-in project 然后命名要以org.eclipse.ui这种类型的方式，本例为com.plugindev.addressbook)<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574325644109-eef8af15-57e3-4844-bd21-fd6901e7e111.png#align=left&display=inline&height=992&name=image.png&originHeight=992&originWidth=1288&size=118048&status=done&style=none&width=1288" alt="image.png"><br>中间这个界面是PDE提供的一个基于表单的多页插件清单编辑器。打开这个新建的插件，可以看到，最底下包含”概述”“依赖性”“运行时”“扩展”“扩展点”“构建”“MANIFEST.MF”,plugin.xml,bulid.properties 9个页面，用来编辑插件的各种清单文件。</p>
+<p>下图为概述界面。提供了对插件的一般信息和执行环境的编辑，可以定义和修改插件的基本属性。<br>general information中依次有 标识、版本、名称、提供程序等等。并在OSGi清单文件（MANIFEST.MF)中有对应项，两个地方都可编辑 是一样的。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574327058585-1bf4c7d4-0368-4261-9da1-a3da038e525a.png#align=left&display=inline&height=714&name=image.png&originHeight=714&originWidth=717&size=76511&status=done&style=none&width=717" alt="image.png"><br>调整JRE库，启动插件，插件的导出设置等等。</p>
+<p>通过MANIFEST.MF、plugin.xml和bulid.properties统一管理所有插件文件。</p>
+<p><a name="xj8dm"></a></p>
+<h3 id="plugin-xml"><a href="#plugin-xml" class="headerlink" title="plugin.xml"></a>plugin.xml</h3><p>plugin.xml文件是用来记录插件的扩展点和扩展的。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574386625902-7363a803-b632-4c67-aae1-9ea626c701ab.png#align=left&display=inline&height=702&name=image.png&originHeight=702&originWidth=827&size=74518&status=done&style=none&width=827" alt="image.png"></p>
+<ul>
+<li><plugin>元素定义清单的主体。可以有选择地包含由该插件引入的任何新扩展点的声明以及功能扩展的配置。</plugin></li>
+<li><extension>定义该插件对其他插件的功能扩展，具有point（所引用扩展点的标识）、id（本实例的名字）、name（扩展提供给用户的名称，就是可视的，在本实例中相当于view中拉出来的栏目中可视化的名称为地址视图）</extension></li>
+<li><extension-point>扩展点 这个例子中没有扩展点。</extension-point></li>
+</ul>
+<p><a name="84BAs"></a></p>
+<h3 id="MANIFEST-MF"><a href="#MANIFEST-MF" class="headerlink" title="MANIFEST.MF"></a>MANIFEST.MF</h3><p>MANIFEST.MF是用来提供关于捆绑软件的描述信息。<br>可以在这个页面编辑，也可以在overview和dependencies视图中修改。<br>require-bundle就是依赖的其他插件 与依赖项视图中的对应。修改的话修改一边，另一个地方会自动改。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574388872641-003a2cae-2647-4933-a54b-51539e945f81.png#align=left&display=inline&height=323&name=image.png&originHeight=323&originWidth=656&size=25417&status=done&style=none&width=656" alt="image.png"></p>
+<p><a name="IcDR7"></a></p>
+<h3 id="build-properties文件"><a href="#build-properties文件" class="headerlink" title="build.properties文件"></a>build.properties文件</h3><p>bulid.properties文件记录了需要构建的元素的列表，PDE（插件开发环境）通过这个文件构建插件，最终构建的插件中不需要再包含这个文件。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574389676858-2e88417d-b255-4164-bc37-689b12ac32ea.png#align=left&display=inline&height=230&name=image.png&originHeight=230&originWidth=353&size=9471&status=done&style=none&width=353" alt="image.png"><br>具体地说，应该就是插件生成的代码文件要放到对应的什么文件夹里，都是这个properties定义的。同样地，也可以在Build视图中修改，改了一边另一边会自动修改。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574390193884-f23f0cf4-570d-4ed9-9363-5598539c0689.png#align=left&display=inline&height=366&name=image.png&originHeight=366&originWidth=801&size=23579&status=done&style=none&width=801" alt="image.png"><br>打勾的项表示二进制目录中包括的资源。如果插件依赖于额外的资源，一定要包含再构建路径中。</p>
+<p><a name="CpN6T"></a></p>
+<h2 id="对应Java代码"><a href="#对应Java代码" class="headerlink" title="对应Java代码"></a>对应Java代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line">package com.plugindev.addressbook.views;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.widgets.Composite;</span><br><span class="line">import org.eclipse.ui.part.*;</span><br><span class="line">import org.eclipse.jface.viewers.*;</span><br><span class="line">import org.eclipse.swt.graphics.Image;</span><br><span class="line">import org.eclipse.jface.action.*;</span><br><span class="line">import org.eclipse.jface.dialogs.MessageDialog;</span><br><span class="line">import org.eclipse.ui.*;</span><br><span class="line">import org.eclipse.swt.widgets.Menu;</span><br><span class="line">import org.eclipse.swt.SWT;</span><br><span class="line">import javax.inject.Inject;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * This sample class demonstrates how to plug-in a new</span><br><span class="line"> * workbench view. The view shows data obtained from the</span><br><span class="line"> * model. The sample creates a dummy model on the fly,</span><br><span class="line"> * but a real implementation would connect to the model</span><br><span class="line"> * available either in this or another plug-in (e.g. the workspace).</span><br><span class="line"> * The view is connected to the model using a content provider.</span><br><span class="line"> * &lt;p&gt;</span><br><span class="line"> * The view uses a label provider to define how model</span><br><span class="line"> * objects should be presented in the view. Each</span><br><span class="line"> * view can present the same model objects using</span><br><span class="line"> * different labels and icons, if needed. Alternatively,</span><br><span class="line"> * a single label provider can be shared between views</span><br><span class="line"> * in order to ensure that objects of the same type are</span><br><span class="line"> * presented in the same way everywhere.</span><br><span class="line"> * &lt;p&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class AddressView extends ViewPart &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * The ID of the view as specified by the extension.</span><br><span class="line">	 */</span><br><span class="line">	public static final String ID = &quot;com.plugindev.addressbook.views.AddressView&quot;;</span><br><span class="line"></span><br><span class="line">	@Inject IWorkbench workbench;</span><br><span class="line">	</span><br><span class="line">	private TableViewer viewer;</span><br><span class="line">	private Action action1;</span><br><span class="line">	private Action action2;</span><br><span class="line">	private Action doubleClickAction;</span><br><span class="line">	 </span><br><span class="line"></span><br><span class="line">	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public String getColumnText(Object obj, int index) &#123;</span><br><span class="line">			return getText(obj);</span><br><span class="line">		&#125;</span><br><span class="line">		@Override</span><br><span class="line">		public Image getColumnImage(Object obj, int index) &#123;</span><br><span class="line">			return getImage(obj);</span><br><span class="line">		&#125;</span><br><span class="line">		@Override</span><br><span class="line">		public Image getImage(Object obj) &#123;</span><br><span class="line">			return workbench.getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void createPartControl(Composite parent) &#123;</span><br><span class="line">		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);</span><br><span class="line">		</span><br><span class="line">		viewer.setContentProvider(ArrayContentProvider.getInstance());</span><br><span class="line">		viewer.setInput(new String[] &#123; &quot;One&quot;, &quot;Two&quot;, &quot;Three&quot; &#125;);</span><br><span class="line">	viewer.setLabelProvider(new ViewLabelProvider());</span><br><span class="line"></span><br><span class="line">		// Create the help context id for the viewer&apos;s control</span><br><span class="line">		workbench.getHelpSystem().setHelp(viewer.getControl(), &quot;com.plugindev.addressbook.viewer&quot;);</span><br><span class="line">		getSite().setSelectionProvider(viewer);</span><br><span class="line">		makeActions();</span><br><span class="line">		hookContextMenu();</span><br><span class="line">		hookDoubleClickAction();</span><br><span class="line">		contributeToActionBars();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void hookContextMenu() &#123;</span><br><span class="line">		MenuManager menuMgr = new MenuManager(&quot;#PopupMenu&quot;);</span><br><span class="line">		menuMgr.setRemoveAllWhenShown(true);</span><br><span class="line">		menuMgr.addMenuListener(new IMenuListener() &#123;</span><br><span class="line">			public void menuAboutToShow(IMenuManager manager) &#123;</span><br><span class="line">				AddressView.this.fillContextMenu(manager);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		Menu menu = menuMgr.createContextMenu(viewer.getControl());</span><br><span class="line">		viewer.getControl().setMenu(menu);</span><br><span class="line">		getSite().registerContextMenu(menuMgr, viewer);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void contributeToActionBars() &#123;</span><br><span class="line">		IActionBars bars = getViewSite().getActionBars();</span><br><span class="line">		fillLocalPullDown(bars.getMenuManager());</span><br><span class="line">		fillLocalToolBar(bars.getToolBarManager());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void fillLocalPullDown(IMenuManager manager) &#123;</span><br><span class="line">		manager.add(action1);</span><br><span class="line">		manager.add(new Separator());</span><br><span class="line">		manager.add(action2);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void fillContextMenu(IMenuManager manager) &#123;</span><br><span class="line">		manager.add(action1);</span><br><span class="line">		manager.add(action2);</span><br><span class="line">		// Other plug-ins can contribute there actions here</span><br><span class="line">		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private void fillLocalToolBar(IToolBarManager manager) &#123;</span><br><span class="line">		manager.add(action1);</span><br><span class="line">		manager.add(action2);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void makeActions() &#123;</span><br><span class="line">		action1 = new Action() &#123;</span><br><span class="line">			public void run() &#123;</span><br><span class="line">				showMessage(&quot;Action 1 executed&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		action1.setText(&quot;Action 1&quot;);</span><br><span class="line">		action1.setToolTipText(&quot;Action 1 tooltip&quot;);</span><br><span class="line">		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().</span><br><span class="line">			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));</span><br><span class="line">		</span><br><span class="line">		action2 = new Action() &#123;</span><br><span class="line">			public void run() &#123;</span><br><span class="line">				showMessage(&quot;Action 2 executed&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		action2.setText(&quot;Action 2&quot;);</span><br><span class="line">		action2.setToolTipText(&quot;Action 2 tooltip&quot;);</span><br><span class="line">		action2.setImageDescriptor(workbench.getSharedImages().</span><br><span class="line">				getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));</span><br><span class="line">		doubleClickAction = new Action() &#123;</span><br><span class="line">			public void run() &#123;</span><br><span class="line">				IStructuredSelection selection = viewer.getStructuredSelection();</span><br><span class="line">				Object obj = selection.getFirstElement();</span><br><span class="line">				showMessage(&quot;Double-click detected on &quot;+obj.toString());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void hookDoubleClickAction() &#123;</span><br><span class="line">		viewer.addDoubleClickListener(new IDoubleClickListener() &#123;</span><br><span class="line">			public void doubleClick(DoubleClickEvent event) &#123;</span><br><span class="line">				doubleClickAction.run();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	private void showMessage(String message) &#123;</span><br><span class="line">		MessageDialog.openInformation(</span><br><span class="line">			viewer.getControl().getShell(),</span><br><span class="line">			&quot;地址本视图&quot;,</span><br><span class="line">			message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void setFocus() &#123;</span><br><span class="line">		viewer.getControl().setFocus();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它对应的概览页的插件的动作和函数为：<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650979791-e35e3dc0-b2be-4209-a709-71a7c5a90a63.png#align=left&display=inline&height=626&name=image.png&originHeight=626&originWidth=509&size=57525&status=done&style=none&width=509" alt="image.png"></p>
+<p><a name="DcoNJ"></a></p>
+<h3 id="运行插件程序"><a href="#运行插件程序" class="headerlink" title="运行插件程序"></a>运行插件程序</h3><p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574402282729-2b33adb5-017c-49b0-9165-188f6cf97959.png#align=left&display=inline&height=702&name=image.png&originHeight=702&originWidth=1056&size=99804&status=done&style=none&width=1056" alt="image.png"><br>然后通过运行这个插件，就生成了eclipse runtime。<br>在这个runtime中 打开windows-show view-other，就会发现比普通的eclipse平台界面多了一个PLUGINDEV，地址本视图。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650038054-de6438bc-0e97-4592-92f3-d8b7d1d77105.png#align=left&display=inline&height=452&name=image.png&originHeight=452&originWidth=345&size=19104&status=done&style=none&width=345" alt="image.png"></p>
+<p>open这个地址本视图<br>可以看到依次三个图标。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650048030-a754a62c-3fb3-4677-ac3c-a4fb6a929b95.png#align=left&display=inline&height=493&name=image.png&originHeight=493&originWidth=694&size=19752&status=done&style=none&width=694" alt="image.png"><br>打开任意一个图标，会看到类似的画面（因为没有对图标内容，button操作有什么具体的定义，所以这里简单示例的是一个警告界面）任意过程都是可编程可自定义的。<br><img src="https://cdn.nlark.com/yuque/0/2019/png/436186/1574650316389-4e96dd34-8600-483f-892c-730967418392.png#align=left&display=inline&height=153&name=image.png&originHeight=153&originWidth=522&size=8776&status=done&style=none&width=522" alt="image.png"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/27/vlog/" rel="next" title="分享生活vlog">
+                <i class="fa fa-chevron-left"></i> 分享生活vlog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">whale</p>
+              <p class="site-description motion-element" itemprop="description">suda masaki hahaha</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Eclipse学习"><span class="nav-number">1.</span> <span class="nav-text">Eclipse学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缩写含义"><span class="nav-number">1.1.</span> <span class="nav-text">缩写含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建插件"><span class="nav-number">1.2.</span> <span class="nav-text">创建插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行和调试插件"><span class="nav-number">1.3.</span> <span class="nav-text">运行和调试插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EMF建模"><span class="nav-number">1.4.</span> <span class="nav-text">EMF建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成代码"><span class="nav-number">1.4.1.</span> <span class="nav-text">生成代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用EMF-Edit编辑模型"><span class="nav-number">1.5.</span> <span class="nav-text">使用EMF.Edit编辑模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用EMF的流程"><span class="nav-number">1.6.</span> <span class="nav-text">使用EMF的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML-Schema"><span class="nav-number">1.6.1.</span> <span class="nav-text">XML Schema</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse各文件的含义"><span class="nav-number">1.7.</span> <span class="nav-text">Eclipse各文件的含义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Plugin-xml文件"><span class="nav-number">1.7.1.</span> <span class="nav-text">Plugin.xml文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse插件开发"><span class="nav-number">1.8.</span> <span class="nav-text">Eclipse插件开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#plugin-xml"><span class="nav-number">1.8.1.</span> <span class="nav-text">plugin.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MANIFEST-MF"><span class="nav-number">1.8.2.</span> <span class="nav-text">MANIFEST.MF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build-properties文件"><span class="nav-number">1.8.3.</span> <span class="nav-text">build.properties文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对应Java代码"><span class="nav-number">1.9.</span> <span class="nav-text">对应Java代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行插件程序"><span class="nav-number">1.9.1.</span> <span class="nav-text">运行插件程序</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whale</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
